@@ -8,7 +8,7 @@ public class Logica_LightsOut {
 	private boolean[][] tablero;
 	private int dimension;
 	private int turnos;
-		
+	
 	
 	/** Inicializa un tablero de tama�o: dimension*dimension */
 	public Logica_LightsOut(int dimension) {
@@ -17,8 +17,7 @@ public class Logica_LightsOut {
 		this.turnos = 0;
 		configurarTableroRandom(dimension);
 	}
-		
-
+	
 	/** Genera booleanos al azar para cada celda del tablero */
 	private void configurarTableroRandom(int dimension) {
 		Random random = new Random(); 
@@ -36,14 +35,12 @@ public class Logica_LightsOut {
 			col++;
 		}
 	}
-		
-		
+	
 	/** Cambia el estado del booleano indicado como parametro */
 	public void cambiarEstado(int fila, int col) {
 		tablero[fila][col] = !tablero[fila][col];
 	}
 
-	
 	/** Dada una posicion devuelve en un arrglo los indices (i,j) 
 	 * para ubicar si respectiva posicion dentro de la matriz */
 	public int[] buscarIndices(int pos) {
@@ -57,8 +54,6 @@ public class Logica_LightsOut {
 		
 		return indices;
 	}
-
-
 
 	/** Dados los indices de un elemento de la matriz, cambia el estado 
 	 * de los vecinos correspondientes (arriba, abajo, der, izq) */
@@ -84,13 +79,11 @@ public class Logica_LightsOut {
 		}
 	}
 	
-	
 	/** Por cada luz apagada manualmente, incrementa en uno el contador de turnos */
 	public void aumentarTurno() {
 		this.turnos ++ ; 
 	}
-		
-		
+	
 	/** Jugar una partida, dada la posicion del boton seleccionado apaga esa luz y las luces adyacentes*/
 	public void jugarUnaPartida(int posicion){
 		int[] idxBoton = buscarIndices(posicion);
@@ -100,12 +93,12 @@ public class Logica_LightsOut {
 		this.cambiarVecinos(fila, col);
 		this.aumentarTurno();
 	}
-		
+	
 	/** Devuelve la cantidad de turnos */
 	public int cantidadTurnos () {
 		return turnos;
 	}
-		
+	
 	/** Retorna el valor booleano de una posicion del tablero, es decir si la luz esta encendida o apagada */
 	public boolean estaEncendida (int fila, int col) {
 		return this.tablero[fila][col];

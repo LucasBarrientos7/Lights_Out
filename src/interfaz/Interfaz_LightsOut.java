@@ -164,8 +164,8 @@ public class Interfaz_LightsOut {
 	
 	
 	/**Verifica el estado de la partida, en caso de que el estado sea true(victoria), ejecuta un cuadro con la felicitaci�n 
-	  por pantalla, guarda el record en caso de que se haya superado el record anterior en la dificultad seleccionada, 
-	  y da la opcion de volver a jugar o cerrar el JFrame*/
+	por pantalla, guarda el record en caso de que se haya superado el record anterior en la dificultad seleccionada, 
+	y da la opcion de volver a jugar o cerrar el JFrame*/
 	private void terminarPartida(boolean estadoDePartida) 
 	{
 		if(estadoDePartida) {
@@ -193,14 +193,14 @@ public class Interfaz_LightsOut {
 	  si es menor o igual no hace nada */
 	private void guardarRecord() {
 		File record = new File(direccionRecord);
-        if(!record.exists())
-    		manejoFicheros.escribirFichero(Integer.toString(matriz.cantidadTurnos()) + " Turnos - " + usuario, direccionRecord);
-        else {
+        if(!record.exists()){
+			manejoFicheros.escribirFichero(Integer.toString(matriz.cantidadTurnos()) + " Turnos - " + usuario, direccionRecord);
+		} else {
         	//True si el primer parametro(puntaje nuevo) es mayor que el segundo(ultimo record)
-        	if(manejoFicheros.compararPuntajes(matriz.cantidadTurnos(), manejoFicheros.leerPrimeraLineaFichero(direccionRecord))) {
-        		manejoFicheros.borrarRecordAnterior(direccionRecord);
-        		manejoFicheros.escribirFichero(Integer.toString(matriz.cantidadTurnos()) + " Turnos - " + usuario, direccionRecord);
-        	}
+			if(manejoFicheros.compararPuntajes(matriz.cantidadTurnos(), manejoFicheros.leerPrimeraLineaFichero(direccionRecord))) {
+				manejoFicheros.borrarRecordAnterior(direccionRecord);
+				manejoFicheros.escribirFichero(Integer.toString(matriz.cantidadTurnos()) + " Turnos - " + usuario, direccionRecord);
+			}
         }
 	}
 	

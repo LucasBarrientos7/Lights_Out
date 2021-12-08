@@ -65,7 +65,7 @@ public class DialogUsuario extends JDialog {
 
 	
 	/** Crea una caja de texto para que el usuario escriba su nombre y una serie de botones para 
-	 para seleccionar la dificultad e iniciar la partida*/
+	para seleccionar la dificultad e iniciar la partida*/
 	private void CrearCajaDeTexto() {
 		textUsuario = new JTextField();
 		textUsuario.setBounds(199, 124, 150, 20);
@@ -73,10 +73,10 @@ public class DialogUsuario extends JDialog {
 		textUsuario.setColumns(10);
 		
 		textUsuario.addActionListener(new ActionListener() {
-		    @Override
-		    public void actionPerformed(ActionEvent arg0) {
-		        setVisible(false);
-		    }
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+			}
 		});
 		
 		JButton btn_facil = new JButton("Facil");

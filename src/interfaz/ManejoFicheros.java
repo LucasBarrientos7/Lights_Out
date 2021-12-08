@@ -12,28 +12,28 @@ public class ManejoFicheros{
         try
         {
     		//FileWriter fichero = new FileWriter("c:/prueba.txt",true) para trabajar con un nuevo fichero
-        	if(record.exists())
-        		fichero = new FileWriter(direccionFichero,true);
-        	//FileWriter fichero = new FileWriter("c:/prueba.txt") para trabajar con un fichero preexistente
-        	else
-        		fichero = new FileWriter(direccionFichero);
-        	
-        	printWriter = new PrintWriter(fichero);
+			if(record.exists()){
+				fichero = new FileWriter(direccionFichero,true);
+			} else {
+				//FileWriter fichero = new FileWriter("c:/prueba.txt") para trabajar con un fichero preexistente
+				fichero = new FileWriter(direccionFichero);
+			}
+			printWriter = new PrintWriter(fichero);
             printWriter.println(texto);
             
-	     } catch (Exception e) {
-	    	 e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		
 		// En el finally cerramos el fichero, para asegurarnos que se cierra tanto si todo va bien como si salta una excepcion.
-	     } finally {
-	    	 try {
-	    		 if (null != fichero)
-	    			 fichero.close();
-	           	} catch (Exception e2) {
-	           		e2.printStackTrace();
-	           	}
-	        }
-	    }
+		} finally {
+			try {
+				if (null != fichero)
+					fichero.close();
+			} catch (Exception e2) {
+			e2.printStackTrace();
+			}
+		}
+		}
 	
 	
 	/** Lee un fichero */
@@ -52,19 +52,18 @@ public class ManejoFicheros{
 			String linea;
 			while((linea=bufferedReader.readLine())!=null)
 				System.out.println(linea);
-	      	}
-	      	catch(Exception e){
-	      		e.printStackTrace();
-	      		
-	      	}finally{
-	      		try{                    
-	      			if( null != fileReader ){   
-	      				fileReader.close();     
-	      			}                  
-	      		}catch (Exception e2){ 
-	      			e2.printStackTrace();
-	      		}
-      	}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		} finally {
+			try{                    
+				if( null != fileReader ){   
+					fileReader.close();     
+				}                  
+			} catch (Exception e2){ 
+			e2.printStackTrace();
+			}
+		}
 	}
     
     
@@ -83,18 +82,18 @@ public class ManejoFicheros{
 			// Lectura de la primera linea
 			String linea = bufferedReader.readLine();
 			return linea;
-	      	}
-	      	catch(Exception e){
-	      		e.printStackTrace();
-	      	}finally{
-	      		try{                    
-	      			if( null != fileReader ){   
-	      				fileReader.close();     
-	      			}                  
-	      		}catch (Exception e2){ 
-	      			e2.printStackTrace();
-	      		}
-      	}
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}finally{
+				try{                    
+					if( null != fileReader ){   
+						fileReader.close();     
+					}                  
+				}catch (Exception e2){ 
+					e2.printStackTrace();
+				}
+		}
 		return "Error al intentar leer el fichero";
 	}
     
@@ -120,21 +119,21 @@ public class ManejoFicheros{
 		File record = new File(direccionRecordAnterior);
         try
         {
-        	if(record.exists()) {
-        		bufferedWriter = new BufferedWriter(new FileWriter(direccionRecordAnterior));  
-        		bufferedWriter.write("");
-        	}
-	     } catch (Exception e) {
-	         e.printStackTrace();
+			if(record.exists()) {
+				bufferedWriter = new BufferedWriter(new FileWriter(direccionRecordAnterior));  
+				bufferedWriter.write("");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		
-	     } finally {
-	    	 try {
-	    		 if (null != bufferedWriter)
-	    			bufferedWriter.close();
-	           	} catch (Exception e2) {
-	           		e2.printStackTrace();
-	           	}
-	        }
-	    }
+		} finally {
+			try {
+				if (null != bufferedWriter)
+					bufferedWriter.close();
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		}
 }
 

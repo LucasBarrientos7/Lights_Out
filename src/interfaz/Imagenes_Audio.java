@@ -46,33 +46,33 @@ public class Imagenes_Audio {
 	/** Reproduce un audio(Formato WAV) una sola vez */
     private void ReproducirSonido_UnaVez(String nombreSonido){
         try {
-        	AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(nombreSonido).getAbsoluteFile());
-        	click = AudioSystem.getClip();
-        	click.open(audioInputStream);
-        	click.start();
-        	} catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-        		System.out.println("Error al reproducir el sonido.");
-        	}
-      }
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(nombreSonido).getAbsoluteFile());
+			click = AudioSystem.getClip();
+			click.open(audioInputStream);
+			click.start();
+			} catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+				System.out.println("Error al reproducir el sonido.");
+			}
+    }
     
     
 	/** Reproduce un audio(Formato WAV) indefinidamente */
     private void ReproducirSonido_Loop(String nombreSonido){
         try {
-        	AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(nombreSonido).getAbsoluteFile());
-        	musica = AudioSystem.getClip();
-        	musica.open(audioInputStream);
-        	musica.start();
-        	
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(nombreSonido).getAbsoluteFile());
+			musica = AudioSystem.getClip();
+			musica.open(audioInputStream);
+			musica.start();
+			
         	//el loop se realiza la cantidad de veces indicada
         	//clip.loop(2);
-        	
+
         	//loop infinito
-        	musica.loop(Clip.LOOP_CONTINUOUSLY);
-        	} catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-        		System.out.println("Error al reproducir el sonido.");
-        	}
-      }
+			musica.loop(Clip.LOOP_CONTINUOUSLY);
+			} catch(UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+				System.out.println("Error al reproducir el sonido.");
+			}
+    }
     
 
 	/** Carga una ImageIcon, luego la convierte una Image, cambia 
